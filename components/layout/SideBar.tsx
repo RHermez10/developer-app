@@ -1,29 +1,43 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
-const items = [
-  { label: "Dashboard", href: "/dashboard" },
+const navItems = [
+  { label: "Dashboard", href: "/" },
   { label: "Projects", href: "/projects" },
   { label: "Applications", href: "/applications" },
   { label: "Skills", href: "/skills" },
 ];
 
-export default function Sidebar() {
+export function Sidebar() {
+  const pathname = usePathname();
+
   return (
-    <aside className="w-64 border-r h-full p-4 hidden md:block">
-      <div className="text-xl font-bold mb-8">DevBoard</div>
+    <aside className="h-screen w-64 bg-gray-900 border-r border-gray-800 p-4">
+      <div className="mb-8">
+        <h1 className="text-xl font-bold">DevBoard</h1>
+        <p className="text-xs text-gray-400">Developer Dashboard</p>
+      </div>
 
       <nav className="space-y-2">
-        {items.map((item) => (
-          <Link
-            key={item.href}
-            href={item.href}
-            className="block px-3 py-2 rounded-lg hover:bg-muted"
-          >
-            {item.label}
-          </Link>
-        ))}
+        {navItems.map((item) => {
+          const isActive = pathname === item.href;
+
+          return (
+            <Link
+              key={item.href}
+              href={item.href}
+              className={`block px-3 py-2 rounded-md text-sm transition ${
+                isActive
+                  ? "bg-indigo-600 text-white"
+                  : "text-gray-400 hover:text-white hover:bg-gray-800"
+              }`}
+            >
+              {item.label}
+            </Link>
+          );
+        })}
       </nav>
     </aside>
   );
