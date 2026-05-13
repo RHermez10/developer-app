@@ -2,44 +2,28 @@
 
 import Link from "next/link";
 
-import { usePathname } from "next/navigation";
-
-const navItems = [
-  { label: "Dashboard", path: "/" },
-  { label: "Projects", path: "/projects" },
-  { label: "Applications", path: "/applications" },
-  { label: "Skills", path: "/skills" },
-  { label: "Settings", path: "/settings" },
+const items = [
+  { label: "Dashboard", href: "/dashboard" },
+  { label: "Projects", href: "/projects" },
+  { label: "Applications", href: "/applications" },
+  { label: "Skills", href: "/skills" },
 ];
 
-export default function SideBar() {
-  const pathname = usePathname();
-
+export default function Sidebar() {
   return (
-    <aside className="h-screen w-64 bg-gray-900 text-white flex flex-col p-4 border-r border-gray-800">
-      <div className="text-xl font-bold mb-8">Portfolio</div>
+    <aside className="w-64 border-r h-full p-4 hidden md:block">
+      <div className="text-xl font-bold mb-8">DevBoard</div>
 
-      <nav className="flex flex-col gap-2">
-        {navItems.map((item) => {
-          const isActive =
-            item.path === "/"
-              ? pathname === "/"
-              : pathname.startsWith(item.path);
-
-          return (
-            <Link
-              key={item.path}
-              href={item.path}
-              className={`px-4 py-2 rounded-md transition-colors ${
-                isActive
-                  ? "bg-blue-600 text-white"
-                  : "text-gray-300 hover:bg-gray-800 hover:text-white"
-              }`}
-            >
-              {item.label}
-            </Link>
-          );
-        })}
+      <nav className="space-y-2">
+        {items.map((item) => (
+          <Link
+            key={item.href}
+            href={item.href}
+            className="block px-3 py-2 rounded-lg hover:bg-muted"
+          >
+            {item.label}
+          </Link>
+        ))}
       </nav>
     </aside>
   );
