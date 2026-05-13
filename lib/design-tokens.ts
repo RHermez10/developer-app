@@ -42,10 +42,11 @@ export const radius = {
 };
 
 export const typography = {
-  h1: "text-3xl font-bold",
-  h2: "text-2xl font-semibold",
-  h3: "text-xl font-semibold",
+  h1: "text-4xl font-bold tracking-tight",
+  h2: "text-3xl font-semibold tracking-tight",
+  h3: "text-2xl font-semibold",
 
-  body: "text-sm text-gray-300",
-  small: "text-xs text-gray-400",
+  body: "text-base text-gray-300 leading-relaxed",
+  small: "text-sm text-gray-400",
+  muted: "text-xs text-gray-500",
 };
