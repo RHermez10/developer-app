@@ -4,7 +4,7 @@ import {Input} from "@/components/ui/input";
 
 export function Topbar() {
   return (
-    <header className="w-full flex items-center justify-between mb-6">
+    <header className="w-full flex items-center justify-between pb-4 border-b border-gray-800 mb-6">
       {/* Search */}
       <div className="w-full max-w-md">
         <Input placeholder="Search projects, skills..." />
