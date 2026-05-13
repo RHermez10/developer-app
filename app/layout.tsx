@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/providers/ThemeProvider";
+
+import { AppLayout } from "@/components/layout/AppLayout";
 
 export const metadata: Metadata = {
   title: "DevBoard",
@@ -21,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable} suppressHydrationWarning>
       <body>
-        <ThemeProvider>{children}</ThemeProvider>
+        <AppLayout>{children}</AppLayout>
       </body>
     </html>
   );
