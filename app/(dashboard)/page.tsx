@@ -1,4 +1,5 @@
 import { PageHeader } from "@/components/shared/PageHeader";
+import { Card } from "@/components/ui/Card";
 
 export default function DashboardPage() {
   return (
@@ -9,21 +10,10 @@ export default function DashboardPage() {
       />
 
       <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-        <div className="rounded-xl border border-gray-800 bg-gray-900 p-6">
-          Stats Card
-        </div>
-
-        <div className="rounded-xl border border-gray-800 bg-gray-900 p-6">
-          Stats Card
-        </div>
-
-        <div className="rounded-xl border border-gray-800 bg-gray-900 p-6">
-          Stats Card
-        </div>
-
-        <div className="rounded-xl border border-gray-800 bg-gray-900 p-6">
-          Stats Card
-        </div>
+       <Card>Projects Stats</Card>
+       <Card>Applications Stats</Card>
+       <Card>Learning Progress</Card>
+       <Card>Activity</Card>
       </div>
     </div>
   );

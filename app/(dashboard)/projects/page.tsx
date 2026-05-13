@@ -1,4 +1,6 @@
 import { PageHeader } from "@/components/shared/PageHeader";
+import { Badge } from "@/components/ui/Badge";
+import { Button } from "@/components/ui/button";
 
 export default function Projects() {
   return (
@@ -11,6 +13,8 @@ export default function Projects() {
       <div className="rounded-x1 border border-gray-800 bg-gray-900 p-6">
         Projects content coming soon
       </div>
+      <Button>New Project</Button>
+      <Badge>In progress</Badge>
     </div>
   );
 }
