@@ -1,13 +1,7 @@
-import ThemeToggle from "@/components/shared/ThemeToggle";
-
-
-export default function Home() {
+export default function DashboardPage() {
   return (
-    <main>
-
-      <ThemeToggle/>
-
-    
-    </main>
+    <div>
+      <h1 className="text-2xl font-bold">Dashboard</h1>
+    </div>
   );
 }
