@@ -1,7 +1,15 @@
-export default function Applications(){
-    return(
-        <div>
-            <h1 className="text-2xl font-bold">Applications</h1>
-        </div>
-    )
+import { PageHeader } from "@/components/shared/PageHeader";
+
+export default function Applications() {
+  return (
+    <div className="space-y-6">
+      <PageHeader
+        title="Applications"
+        description="Track your job applications and statuses."
+      />
+      <div className="rounded-xl border border-gray-800 bg-gray-900 p-6">
+        Applications content coming soon
+      </div>
+    </div>
+  );
 }
