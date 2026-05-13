@@ -1,9 +1,18 @@
-import DashboardShell from "@/components/layout/DashboardShell";
+import { redirect } from "next/navigation";
+
+
+
+type DashBoardLayoutProps = {
+  children: React.ReactNode;
+};
 
 export default function Layout({
   children,
-}: {
-  children: React.ReactNode;
-}) {
-  return <DashboardShell>{children}</DashboardShell>;
+}: DashBoardLayoutProps) {
+  const isAuthenticated = true;
+
+  if (!isAuthenticated) {
+    redirect("/login")
+  }
+  return<>{children}</>;
 }
