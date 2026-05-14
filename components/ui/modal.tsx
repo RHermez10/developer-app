@@ -4,16 +4,16 @@ import { ReactNode, useEffect } from "react";
 
 type ModalProps = {
   isOpen: boolean;
-  onCloseAction: () => void;
+  onClose: () => void;
   title?: string;
-  children: ReactNode;
+  children?: ReactNode;
 };
 
-export function Modal({ isOpen, onCloseAction, title, children }: ModalProps) {
+export function Modal({ isOpen, onClose, title, children }: ModalProps) {
   useEffect(() => {
     function handleEscape(event: KeyboardEvent) {
       if (event.key === "Escape") {
-        onCloseAction();
+        onClose();
       }
     }
 
@@ -22,7 +22,7 @@ export function Modal({ isOpen, onCloseAction, title, children }: ModalProps) {
     return () => {
       window.removeEventListener("keydown", handleEscape);
     };
-  }, [onCloseAction]);
+  }, [onClose]);
 
   if (!isOpen) return null;
 
@@ -31,7 +31,7 @@ export function Modal({ isOpen, onCloseAction, title, children }: ModalProps) {
       {/* Overlay */}
       <div
         className="absolute inset-0 bg-black/60 backdrop-blur-sm"
-        onClick={onCloseAction}
+        onClick={onClose}
       ></div>
 
       {/* Modal */}

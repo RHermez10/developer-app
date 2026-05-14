@@ -1,11 +1,11 @@
-import { EmptyState } from "@/components/shared/EmptyState";
-import { ErrorState } from "@/components/shared/ErrorState";
-import { LoadingSkeleton } from "@/components/shared/LoadingSkeleton";
+"use client";
+import { useState } from "react";
 import { PageHeader } from "@/components/shared/PageHeader";
-import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/button";
+import { Modal } from "@/components/ui/modal";
 
 export default function Projects() {
+  const [open, setOpen] = useState(false);
   return (
     <div className="space-y-6">
       <PageHeader
@@ -16,11 +16,15 @@ export default function Projects() {
       <div className="rounded-x1 border border-gray-800 bg-gray-900 p-6">
         Projects content coming soon
       </div>
-      <Button>New Project</Button>
-      <Badge>In progress</Badge>
-      <EmptyState title="No projects yet" description="Create your first project to get started"></EmptyState>
-      <LoadingSkeleton></LoadingSkeleton>
-      <ErrorState message="Failed to load projects"></ErrorState>
+      <Button onClick={() => setOpen(true)}>Open modal</Button>
+
+      <Modal
+        isOpen={open}
+        onClose={() => setOpen(false)}
+        title="Create Project"
+      >
+        <p className="text-gray-400">Your project form will go here later.</p>
+      </Modal>
     </div>
   );
 }
