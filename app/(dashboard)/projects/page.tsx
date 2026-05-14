@@ -1,3 +1,6 @@
+import { EmptyState } from "@/components/shared/EmptyState";
+import { ErrorState } from "@/components/shared/ErrorState";
+import { LoadingSkeleton } from "@/components/shared/LoadingSkeleton";
 import { PageHeader } from "@/components/shared/PageHeader";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/button";
@@ -15,6 +18,9 @@ export default function Projects() {
       </div>
       <Button>New Project</Button>
       <Badge>In progress</Badge>
+      <EmptyState title="No projects yet" description="Create your first project to get started"></EmptyState>
+      <LoadingSkeleton></LoadingSkeleton>
+      <ErrorState message="Failed to load projects"></ErrorState>
     </div>
   );
 }
