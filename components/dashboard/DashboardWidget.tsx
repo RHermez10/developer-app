@@ -1,6 +1,6 @@
 type DashboardWidgetProps = {
   title: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
   className?: string;
 };
 
