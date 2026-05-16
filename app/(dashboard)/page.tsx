@@ -1,5 +1,7 @@
 import { DashboardWidget } from "@/components/dashboard/DashboardWidget";
+import { StatCard } from "@/components/dashboard/StatCard";
 import { PageHeader } from "@/components/shared/PageHeader";
+import { Briefcase, FolderKanban, Flame, TrendingUp } from "lucide-react";
 
 export default function DashboardPage() {
   return (
@@ -11,22 +13,37 @@ export default function DashboardPage() {
 
       {/*Stats Grid */}
       <section className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-        <DashboardWidget title="Projects">
-          <p className="text-3xl font-bold text-white">4</p>
-          <p className="mt-2 text-sm text-gray-400"> Active projects</p>
-        </DashboardWidget>
-        <DashboardWidget title="Applications">
-          <p className="text-3xl font-bold text-white">12</p>
-          <p className="mt-2 text-sm text-gray-400"> Job applications</p>
-        </DashboardWidget>
-        <DashboardWidget title="Streak">
-          <p className="text-3xl font-bold text-white">18</p>
-          <p className="mt-2 text-sm text-gray-400"> Days learning</p>
-        </DashboardWidget>
-        <DashboardWidget title="Skills Progress">
-          <p className="text-3xl font-bold text-white">76%</p>
-          <p className="mt-2 text-sm text-gray-400">Completion rate</p>
-        </DashboardWidget>
+        <StatCard
+          title="Projects"
+          value="4"
+          description="Active projects"
+          trend="+2 this month"
+          icon={FolderKanban}
+        />
+
+        <StatCard
+          title="Applications"
+          value="12"
+          description="Job applications"
+          trend="+5 this week"
+          icon={Briefcase}
+        />
+
+        <StatCard
+          title="Streak"
+          value="18"
+          description="Days learning"
+          trend="+3 days"
+          icon={Flame}
+        />
+
+        <StatCard
+          title="Skills Progress"
+          value="76%"
+          description="Completion rate"
+          trend="+12%"
+          icon={TrendingUp}
+        />
       </section>
       {/*Main Grid*/}
       <section className="grid gap-6 lg:grid-cols-3">
