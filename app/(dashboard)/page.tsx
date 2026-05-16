@@ -1,7 +1,16 @@
+import { ActivityItem } from "@/components/dashboard/ActivityItem";
 import { DashboardWidget } from "@/components/dashboard/DashboardWidget";
 import { StatCard } from "@/components/dashboard/StatCard";
 import { PageHeader } from "@/components/shared/PageHeader";
-import { Briefcase, FolderKanban, Flame, TrendingUp } from "lucide-react";
+import {
+  Briefcase,
+  FolderKanban,
+  Flame,
+  TrendingUp,
+  CheckCircle,
+  Code2,
+  Rocket,
+} from "lucide-react";
 
 export default function DashboardPage() {
   return (
@@ -50,17 +59,29 @@ export default function DashboardPage() {
         {/*Activity Feed*/}
         <DashboardWidget title="Recent Activity" className="lg:col-span-2">
           <div className="space-y-4">
-            <div className="rounded-lg bg-gray-800 p-4">
-              {" "}
-              Updated portfolio project
-            </div>
-            <div className="rounded-lg bg-gray-800 p-4">
-              Applied to frontend role
-            </div>
-            <div className="rounded-lg bg-gray-800 p-4">
-              {" "}
-              Completed React course
-            </div>
+            <ActivityItem
+              title="Updated portfolio project"
+              time="2 hours ago"
+              icon={Rocket}
+            />
+
+            <ActivityItem
+              title="Applied to frontend role"
+              time="Yesterday"
+              icon={Briefcase}
+            />
+
+            <ActivityItem
+              title="Completed React course"
+              time="2 days ago"
+              icon={CheckCircle}
+            />
+
+            <ActivityItem
+              title="Started TypeScript practice"
+              time="3 days ago"
+              icon={Code2}
+            />
           </div>
         </DashboardWidget>
         {/*Quick Actions*/}
