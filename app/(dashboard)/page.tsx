@@ -1,7 +1,3 @@
-import { ActivityItem } from "@/features/dashboard/components/activity-item";
-import { DashboardWidget } from "@/features/dashboard/components/dashboard-widget";
-import { StatCard } from "@/features/dashboard/components/stat-card";
-import { PageHeader } from "@/components/shared/page-header";
 import {
   Briefcase,
   FolderKanban,
@@ -11,6 +7,13 @@ import {
   Code2,
   Rocket,
 } from "lucide-react";
+
+import { PageHeader } from "@/components/shared/page-header";
+import { ActivityItem } from "@/components/dashboard/activity-item";
+import { DashboardWidget } from "@/features/dashboard/components/dashboard-widget";
+import { StatCard } from "@/features/dashboard/components/stat-card";
+
+
 
 export default function DashboardPage() {
   return (
