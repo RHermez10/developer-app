@@ -4,9 +4,9 @@ import {Input} from "@/components/ui/input";
 
 export function Topbar() {
   return (
-    <header className="w-full flex items-center justify-between pb-4 border-b border-gray-800 mb-6">
+    <header className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between border-b border-gray-800 pb-4 mb-6">
       {/* Search */}
-      <div className="w-full max-w-md">
+      <div className="w-full md:max-w-md">
         <Input placeholder="Search projects, skills..." />
       </div>
 

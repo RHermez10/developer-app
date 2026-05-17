@@ -14,7 +14,7 @@ export function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <aside className="h-screen w-64 bg-gray-900 border-r border-gray-800 flex flex-col">
+    <aside className="hidden md:flex h-screen w-64 flex-col border-r border-gray-800 bg-gray-900">
      <div className="p-4 border-b border-gray-800">
 
   <h1 className="text-xl font-bold">DevBoard</h1>
