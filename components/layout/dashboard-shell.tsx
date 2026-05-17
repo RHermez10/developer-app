@@ -1,5 +1,5 @@
-import Sidebar from "./SideBar";
-import Topbar from "./TopBar";
+import {Sidebar }from "./SideBar";
+import {Topbar} from "./TopBar";
 
 
 export default function DashboardShell({

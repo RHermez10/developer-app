@@ -1,7 +1,7 @@
-import { ActivityItem } from "@/components/dashboard/ActivityItem";
-import { DashboardWidget } from "@/components/dashboard/DashboardWidget";
-import { StatCard } from "@/components/dashboard/StatCard";
-import { PageHeader } from "@/components/shared/PageHeader";
+import { ActivityItem } from "@/components/dashboard/activity-item";
+import { DashboardWidget } from "@/components/dashboard/dashboard-widget";
+import { StatCard } from "@/components/dashboard/stat-card";
+import { PageHeader } from "@/components/shared/page-header";
 import {
   Briefcase,
   FolderKanban,

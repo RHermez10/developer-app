@@ -1,4 +1,4 @@
-import StatCard from "./StatCard";
+import {StatCard} from "./stat-card";
 
 
 export default function StatsGrid() {

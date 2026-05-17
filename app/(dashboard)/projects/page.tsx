@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { PageHeader } from "@/components/shared/PageHeader";
+import { PageHeader } from "@/components/shared/page-header";
 import { Button } from "@/components/ui/button";
 import { Modal } from "@/components/ui/modal";
 
