@@ -7,9 +7,8 @@ import {
   Code2,
   Rocket,
 } from "lucide-react";
-
 import { PageHeader } from "@/components/shared/page-header";
-import { ActivityItem } from "@/components/dashboard/activity-item";
+import { ActivityItem } from "@/features/dashboard/components/activity-item";
 import { DashboardWidget } from "@/features/dashboard/components/dashboard-widget";
 import { StatCard } from "@/features/dashboard/components/stat-card";
 
