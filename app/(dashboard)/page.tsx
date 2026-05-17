@@ -1,5 +1,5 @@
-import { ActivityItem } from "@/components/dashboard/activity-item";
-import { DashboardWidget } from "@/components/dashboard/dashboard-widget";
+import { ActivityItem } from "@/features/dashboard/components/activity-item";
+import { DashboardWidget } from "@/features/dashboard/components/dashboard-widget";
 import { StatCard } from "@/components/dashboard/stat-card";
 import { PageHeader } from "@/components/shared/page-header";
 import {
