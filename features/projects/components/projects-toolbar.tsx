@@ -6,7 +6,7 @@ export function ProjectsToolbar() {
     <div className="flex flex-col gap-4 rounded-2xl border border-gray-800 bg-gray-900 p-4 md:flex-row md:items-center md:justify-between">
       {/* Search */}
       <div className="w-full md:max-w-sm">
-        <Input placeholder="Search projects"> </Input>
+        <Input placeholder="Search projects"/>
       </div>
       {/* Actions */}
       <div className="flex items-center gap-3">
