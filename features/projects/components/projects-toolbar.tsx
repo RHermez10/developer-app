@@ -1,12 +1,16 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
-export function ProjectsToolbar() {
+type ProjectsToolbarProps = {
+  onAddProject: () => void;
+};
+
+export function ProjectsToolbar({ onAddProject }: ProjectsToolbarProps) {
   return (
     <div className="flex flex-col gap-4 rounded-2xl border border-gray-800 bg-gray-900 p-4 md:flex-row md:items-center md:justify-between">
       {/* Search */}
       <div className="w-full md:max-w-sm">
-        <Input placeholder="Search projects"/>
+        <Input placeholder="Search projects" />
       </div>
       {/* Actions */}
       <div className="flex items-center gap-3">
@@ -16,7 +20,7 @@ export function ProjectsToolbar() {
           <option>Completed</option>
           <option>Archived</option>
         </select>
-        <Button>Add Project</Button>
+        <Button onClick={onAddProject}>Add Project</Button>
       </div>
     </div>
   );
