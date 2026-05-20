@@ -2,6 +2,7 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import { useProjectsStore } from "@/store/projects-store";
 import { ProjectFormData, projectSchema } from "../schema/project-schema";
 import { Modal } from "@/components/ui/modal";
 import { Input } from "@/components/ui/input";
@@ -12,6 +13,7 @@ type AddProjectModalProps = {
 };
 
 export function AddProjectModal({ isOpen, onClose }: AddProjectModalProps) {
+  const addProject = useProjectsStore((state) => state.addProject)
   const {
     register,
     handleSubmit,
@@ -28,7 +30,13 @@ export function AddProjectModal({ isOpen, onClose }: AddProjectModalProps) {
   });
 
   function onSubmit(data: ProjectFormData) {
-    console.log(data);
+    addProject({
+      id: crypto.randomUUID(),
+      title: data.title,
+      description: data.description,
+      status: data.status,
+      techStack: ["Next.js", "TypeScript"]
+    })
 
     reset();
     onClose();

@@ -2,14 +2,14 @@ import { ExternalLink, Pencil } from "lucide-react";
 
 type ProjectsCardProps = {
   title: string;
-  desciption: string;
+  description: string;
   status: "Active" | "Completed" | "Archived";
   techStack: string[];
 };
 
 export function ProjectCard({
   title,
-  desciption,
+  description,
   status,
   techStack,
 }: ProjectsCardProps) {
@@ -19,7 +19,7 @@ export function ProjectCard({
       <div className="flex items-start justify-between">
         <div>
           <h3 className="text-lg font-semibold text-white">{title}</h3>
-          <p className="mt-2 text-sm text-gray-400">{desciption}</p>
+          <p className="mt-2 text-sm text-gray-400">{description}</p>
         </div>
         {/* Status Badge */}
         <span
