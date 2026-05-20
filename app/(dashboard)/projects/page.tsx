@@ -7,6 +7,8 @@ import { ProjectsToolbar } from "@/features/projects/components/projects-toolbar
 
 export default function Projects() {
   const [open, setOpen] = useState(false);
+  const [search, setSearch] = useState("");
+  const [status, setStatus] = useState("ALL");
 
   return (
     <div className="space-y-6">
@@ -15,9 +17,9 @@ export default function Projects() {
         description="Manage and track your development projects."
       />
 
-      <ProjectsToolbar onAddProject={() => setOpen(true)}></ProjectsToolbar>
+      <ProjectsToolbar search={search} status={status} onSearchChange={setSearch} onStatusChange={setStatus} onAddProject={() => setOpen(true)}></ProjectsToolbar>
       <AddProjectModal isOpen={open} onClose={() => setOpen(false)} />
-      <ProjectsGrid></ProjectsGrid>
+      <ProjectsGrid search={search} status={status}></ProjectsGrid>
     </div>
   );
 }
