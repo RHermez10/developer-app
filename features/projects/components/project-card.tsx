@@ -1,17 +1,18 @@
-import { ExternalLink, Pencil } from "lucide-react";
+import { ExternalLink, Pencil, Trash2 } from "lucide-react";
 
 type ProjectsCardProps = {
   title: string;
   description: string;
   status: "Active" | "Completed" | "Archived";
   techStack: string[];
+  onDelete?: () => void
 };
 
 export function ProjectCard({
   title,
   description,
   status,
-  techStack,
+  techStack, onDelete
 }: ProjectsCardProps) {
   return (
     <div className="rounded-2xl border border-gray-800 bg-gray-900 p-6 transition-all hover:border-gray-700 hover:shadow-lg">
@@ -57,6 +58,10 @@ export function ProjectCard({
         <button className="flex items-center gap-2 text-sm text-gray-400 hover:text-white">
           <Pencil size={16} />
           Edit
+        </button>
+        <button onClick={onDelete} className="flex items-center gap-2 text-sm text-red-400 hover:text-red-300">
+          <Trash2 size={16}/>
+          Delete
         </button>
       </div>
     </div>
