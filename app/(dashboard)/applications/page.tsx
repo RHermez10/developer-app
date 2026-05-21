@@ -23,7 +23,7 @@ export default function Applications() {
         onStatusChange={setStatus}
         onAddApplication={() => setOpen(true)}
       />
-      <ApplicationsGrid />
+      <ApplicationsGrid search={search} status={status} />
       <AddApplicationModal isOpen={open} onClose={() => setOpen(false)} />
     </div>
   );

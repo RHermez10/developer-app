@@ -4,6 +4,7 @@ import {
   ApplicationFormData,
   applicationSchema,
 } from "../schema/application-schema";
+import { useApplicationsStore } from "@/store/applications-store";
 import { Modal } from "@/components/ui/modal";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -32,8 +33,17 @@ export function AddApplicationModal({
     },
   });
 
+  const addApplication = useApplicationsStore((state) => state.addApplication);
+
   function onSubmit(data: ApplicationFormData) {
-    console.log(data);
+    addApplication({
+      id: crypto.randomUUID(),
+      company: data.company,
+      role: data.role,
+      location: data.location,
+      status: data.status,
+      appliedDate: "just now",
+    });
     reset();
     onClose();
   }
