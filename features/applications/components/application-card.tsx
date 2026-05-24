@@ -1,4 +1,5 @@
 import { Briefcase, Calendar, MapPin, Pencil, Trash2 } from "lucide-react";
+import {motion} from "framer-motion"
 
 type ApplicationStatus = "Applied" | "Interview" | "Offer" | "Rejected";
 
@@ -21,7 +22,7 @@ export function ApplicationCard({
   onDelete, onEdit
 }: ApplicationCardProps) {
   return (
-    <div className="rounded-2xl border border-gray-800 bg-gray-900 p-6 transition-all hover:border-gray-700 hover:shadow-lg">
+    <motion.div whileHover={{y: -4, scale: 1.01}} className="rounded-2xl border border-gray-800 bg-gray-900 p-6 transition-all hover:border-gray-700 hover:shadow-lg">
       {/*Top */}
       <div className="flex items-start justify-between">
         <div>
@@ -73,6 +74,6 @@ export function ApplicationCard({
           Delete
         </button>
       </div>
-    </div>
+    </motion.div>
   );
 }

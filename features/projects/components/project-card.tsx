@@ -1,4 +1,5 @@
 import { ExternalLink, Pencil, Trash2 } from "lucide-react";
+import {motion} from "framer-motion"
 
 type ProjectsCardProps = {
   title: string;
@@ -15,7 +16,7 @@ export function ProjectCard({
   techStack, onDelete
 }: ProjectsCardProps) {
   return (
-    <div className="rounded-2xl border border-gray-800 bg-gray-900 p-6 transition-all hover:border-gray-700 hover:shadow-lg">
+    <motion.div whileHover={{y: -4, scale: 1.01}} transition={{duration: 0.2}} className="rounded-2xl border border-gray-800 bg-gray-900 p-6 transition-all hover:border-gray-700 hover:shadow-lg">
       {/* Top Section*/}
       <div className="flex items-start justify-between">
         <div>
@@ -64,6 +65,6 @@ export function ProjectCard({
           Delete
         </button>
       </div>
-    </div>
+    </motion.div>
   );
 }
