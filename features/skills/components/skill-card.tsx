@@ -30,7 +30,7 @@ export function SkillCard({ name, category, proficiency }: SkillCardProps) {
       {/* Progress */}
       <div className="mt-6">
         <div className="mb-2 flex items-center justify-between text-sm">
-          <div className="mb-2 flex items-center justify-between text-sm">
+          <div className="mb-2 flex items-center justify-between gap-1 text-sm">
             <span className="text-gray-400">Proficiency</span>
             <span className="font-medium text-white">{proficiency}%</span>
           </div>

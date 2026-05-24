@@ -1,15 +1,16 @@
 import { PageHeader } from "@/components/shared/page-header";
+import { SkillsGrid } from "@/features/skills/components/skills-grid";
+import { SkillsSummary } from "@/features/skills/components/skills-summary";
 
-export default function Skills() {
+export default function SkillsPage() {
   return (
     <div className="space-y-6">
       <PageHeader
         title="Skills"
-        description="Monitor your learning progress and technologies."
+        description="Track your technical growth and learning progress."
       />
-      <div className="rounded-xl border border-gray-800 bg-gray-900 p-6">
-        Skills content coming soon
-      </div>
+      <SkillsSummary/>
+      <SkillsGrid/>
     </div>
   );
 }
