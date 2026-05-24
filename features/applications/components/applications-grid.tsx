@@ -5,9 +5,10 @@ import { useApplicationsStore } from "@/store/applications-store";
 type ApplicationsGridProps = {
   search: string;
   status: string;
+  onEditApplication: ( application: any) => void
 };
 
-export function ApplicationsGrid({ search, status }: ApplicationsGridProps) {
+export function ApplicationsGrid({ search, status, onEditApplication }: ApplicationsGridProps) {
   const applications = useApplicationsStore((state) => state.applications);
   const deleteApplication = useApplicationsStore(
     (state) => state.deleteApplication
@@ -33,6 +34,7 @@ export function ApplicationsGrid({ search, status }: ApplicationsGridProps) {
             appliedDate={application.appliedDate}
             location={application.location}
             onDelete={() => deleteApplication(application.id)}
+            onEdit={() => onEditApplication(application)}
           />
         ))
       ) : (

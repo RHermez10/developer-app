@@ -9,6 +9,7 @@ type ApplicationCardProps = {
   appliedDate: string;
   location: string;
   onDelete?: () => void;
+  onEdit?: () => void;
 };
 
 export function ApplicationCard({
@@ -17,7 +18,7 @@ export function ApplicationCard({
   status,
   appliedDate,
   location,
-  onDelete,
+  onDelete, onEdit
 }: ApplicationCardProps) {
   return (
     <div className="rounded-2xl border border-gray-800 bg-gray-900 p-6 transition-all hover:border-gray-700 hover:shadow-lg">
@@ -60,7 +61,7 @@ export function ApplicationCard({
 
       {/*Actions */}
       <div className="mt-6 flex items-center justify-end gap-4">
-        <button className="flex items-center gap-2 text-sm text-gray-400 hover:text-white">
+        <button onClick={onEdit} className="flex items-center gap-2 text-sm text-gray-400 hover:text-white">
           <Pencil size={16} />
           Edit
         </button>

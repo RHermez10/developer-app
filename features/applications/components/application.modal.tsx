@@ -9,15 +9,23 @@ import { Modal } from "@/components/ui/modal";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
-type AddApplicationModalProps = {
+type ApplicationModalProps = {
   isOpen: boolean;
   onClose: () => void;
+
+  initialData?: {
+    id?: string;
+    company: string;
+    role: string;
+    location: string; 
+    status: | "Applied" | "Interview" | "Offer" | "Rejected";
+  }
 };
 
-export function AddApplicationModal({
+export function ApplicationModal({
   isOpen,
-  onClose,
-}: AddApplicationModalProps) {
+  onClose, initialData
+}: ApplicationModalProps) {
   const {
     register,
     handleSubmit,
@@ -26,30 +34,41 @@ export function AddApplicationModal({
   } = useForm<ApplicationFormData>({
     resolver: zodResolver(applicationSchema),
     defaultValues: {
-      company: "",
-      role: "",
-      location: "",
-      status: "Applied",
+      company: initialData?.company,
+      role: initialData?.role || "",
+      location: initialData?.location || "",
+      status:  initialData?.status || "Applied",
     },
   });
 
   const addApplication = useApplicationsStore((state) => state.addApplication);
+  const updateApplication = useApplicationsStore((state) => state.updateApplication)
 
   function onSubmit(data: ApplicationFormData) {
-    addApplication({
-      id: crypto.randomUUID(),
+  if (initialData?.id) {
+    updateApplication(initialData.id, {
       company: data.company,
       role: data.role,
       location: data.location,
       status: data.status,
-      appliedDate: "just now",
     });
+  }  else {
+      addApplication({
+        id: crypto.randomUUID(),
+        company: data.company,
+        role: data.role,
+        location: data.location,
+        status: data.status,
+        appliedDate: "Just now"
+      });
+    }
+
     reset();
     onClose();
   }
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} title="Add Application">
+    <Modal isOpen={isOpen} onClose={onClose} title={initialData ? "Edit Application" : "Add Application"}>
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
         {/*Company */}
         <div>
@@ -99,7 +118,7 @@ export function AddApplicationModal({
 
         {/*Submit */}
         <Button type="submit" className="w-full">
-          Add Application
+          {initialData ? "Save Changes" : "Add Application"}
         </Button>
       </form>
     </Modal>
