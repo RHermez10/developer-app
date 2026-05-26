@@ -1,5 +1,6 @@
 import { Briefcase, Calendar, MapPin, Pencil, Trash2 } from "lucide-react";
 import {motion} from "framer-motion"
+import { memo } from "react";
 
 type ApplicationStatus = "Applied" | "Interview" | "Offer" | "Rejected";
 
@@ -13,7 +14,7 @@ type ApplicationCardProps = {
   onEdit?: () => void;
 };
 
-export function ApplicationCard({
+function ApplicationCardComponent({
   company,
   role,
   status,
@@ -62,12 +63,13 @@ export function ApplicationCard({
 
       {/*Actions */}
       <div className="mt-6 flex items-center justify-end gap-4">
-        <button onClick={onEdit} className="flex items-center gap-2 text-sm text-gray-400 hover:text-white">
+        <button onClick={onEdit} aria-label="Edit application" className="flex items-center gap-2 text-sm text-gray-400 hover:text-white">
           <Pencil size={16} />
           Edit
         </button>
         <button
           onClick={onDelete}
+          aria-label="Close modal"
           className="flex items-center gap-2 text-sm text-red-400 hover:text-red-300"
         >
           <Trash2 size={16} />
@@ -77,3 +79,5 @@ export function ApplicationCard({
     </motion.div>
   );
 }
+
+export const ApplicationCard = memo(ApplicationCardComponent)

@@ -41,7 +41,7 @@ const data = [
     proficiency: 45,
   },
 ];
-export default function SkillsChart() {
+export function SkillsChart() {
   return (
     <div className="rounded-2xl border border-gray-800 bg-gray-900 p-6">
       {/* Header */}

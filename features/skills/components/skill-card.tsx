@@ -1,13 +1,14 @@
 "use client"
 
 import { motion } from "framer-motion";
+import { memo } from "react";
 type SkillCardProps = {
   name: string;
   category: string;
   proficiency: number;
 };
 
-export function SkillCard({ name, category, proficiency }: SkillCardProps) {
+function SkillCardComponent({ name, category, proficiency }: SkillCardProps) {
   function getLevel() {
     if (proficiency >= 80) {
       return "Advanced";
@@ -49,3 +50,5 @@ export function SkillCard({ name, category, proficiency }: SkillCardProps) {
     </motion.div>
   );
 }
+
+export const SkillCard = memo(SkillCardComponent)

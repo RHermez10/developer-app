@@ -1,5 +1,6 @@
 import { ExternalLink, Pencil, Trash2 } from "lucide-react";
 import {motion} from "framer-motion"
+import { memo } from "react";
 
 type ProjectsCardProps = {
   title: string;
@@ -9,7 +10,7 @@ type ProjectsCardProps = {
   onDelete?: () => void
 };
 
-export function ProjectCard({
+function ProjectCardComponent({
   title,
   description,
   status,
@@ -60,7 +61,7 @@ export function ProjectCard({
           <Pencil size={16} />
           Edit
         </button>
-        <button onClick={onDelete} className="flex items-center gap-2 text-sm text-red-400 hover:text-red-300">
+        <button onClick={onDelete} aria-label="Delete project" className="flex items-center gap-2 text-sm text-red-400 hover:text-red-300">
           <Trash2 size={16}/>
           Delete
         </button>
@@ -68,3 +69,5 @@ export function ProjectCard({
     </motion.div>
   );
 }
+
+export const ProjectCard = memo(ProjectCardComponent)
