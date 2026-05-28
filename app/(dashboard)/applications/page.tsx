@@ -1,12 +1,13 @@
 "use client";
 import { useEffect, useState } from "react";
-import { useSearchParams } from "next/navigation";
+import { useRouter,useSearchParams } from "next/navigation";
 import { PageHeader } from "@/components/shared/page-header";
 import { ApplicationsGrid } from "@/features/applications/components/applications-grid";
 import { ApplicationsToolbar } from "@/features/applications/components/applications-toolbar";
 import { ApplicationModal } from "@/features/applications/components/application.modal";
 
 export default function Applications() {
+  const router = useRouter();
   const searchParams = useSearchParams()
   const [search, setSearch] = useState("");
   const [status, setStatus] = useState("ALL");
@@ -18,8 +19,9 @@ export default function Applications() {
 
     if (shouldOpen) {
       setOpen(true)
+      router.replace("/applications")
     }
-  }, [searchParams])
+  }, [searchParams, router])
 
   return (
     <div className="space-y-6">
