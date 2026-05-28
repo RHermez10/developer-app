@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { motion } from "framer-motion";
 import { memo } from "react";
@@ -19,7 +19,10 @@ function SkillCardComponent({ name, category, proficiency }: SkillCardProps) {
   }
 
   return (
-    <motion.div whileHover={{y: -4, scale: 1.01}} className="rounded-2xl border border-gray-800 bg-gray-900 p-6 transition-all hover:border-gray-700 hover:shadow-lg">
+    <motion.div
+      whileHover={{ y: -4, scale: 1.01 }}
+      className="rounded-2xl border border-gray-800 bg-gray-900 p-6 transition-all hover:border-gray-700 hover:shadow-lg"
+    >
       {/*Header */}
       <div className="flex items-start justify-between">
         <div>
@@ -51,4 +54,4 @@ function SkillCardComponent({ name, category, proficiency }: SkillCardProps) {
   );
 }
 
-export const SkillCard = memo(SkillCardComponent)
+export const SkillCard = memo(SkillCardComponent);

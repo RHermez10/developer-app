@@ -1,5 +1,5 @@
-"use client"
-import {motion} from "framer-motion"
+"use client";
+import { motion } from "framer-motion";
 
 type DashboardWidgetProps = {
   title: string;
@@ -13,7 +13,9 @@ export function DashboardWidget({
   className = "",
 }: DashboardWidgetProps) {
   return (
-    <motion.div whileHover={{y: -4}} transition={{duration: 0.2}}
+    <motion.div
+      whileHover={{ y: -4 }}
+      transition={{ duration: 0.2 }}
       className={` rounded-2xl border border-gray-800 bg-gray-900 p-6 ${className}`}
     >
       <div className="mb-4">

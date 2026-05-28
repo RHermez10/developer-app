@@ -1,5 +1,5 @@
 import { Briefcase, Calendar, MapPin, Pencil, Trash2 } from "lucide-react";
-import {motion} from "framer-motion"
+import { motion } from "framer-motion";
 import { memo } from "react";
 
 type ApplicationStatus = "Applied" | "Interview" | "Offer" | "Rejected";
@@ -20,10 +20,14 @@ function ApplicationCardComponent({
   status,
   appliedDate,
   location,
-  onDelete, onEdit
+  onDelete,
+  onEdit,
 }: ApplicationCardProps) {
   return (
-    <motion.div whileHover={{y: -4, scale: 1.01}} className="rounded-2xl border border-gray-800 bg-gray-900 p-6 transition-all hover:border-gray-700 hover:shadow-lg">
+    <motion.div
+      whileHover={{ y: -4, scale: 1.01 }}
+      className="rounded-2xl border border-gray-800 bg-gray-900 p-6 transition-all hover:border-gray-700 hover:shadow-lg"
+    >
       {/*Top */}
       <div className="flex items-start justify-between">
         <div>
@@ -63,7 +67,11 @@ function ApplicationCardComponent({
 
       {/*Actions */}
       <div className="mt-6 flex items-center justify-end gap-4">
-        <button onClick={onEdit} aria-label="Edit application" className="flex items-center gap-2 text-sm text-gray-400 hover:text-white">
+        <button
+          onClick={onEdit}
+          aria-label="Edit application"
+          className="flex items-center gap-2 text-sm text-gray-400 hover:text-white"
+        >
           <Pencil size={16} />
           Edit
         </button>
@@ -80,4 +88,4 @@ function ApplicationCardComponent({
   );
 }
 
-export const ApplicationCard = memo(ApplicationCardComponent)
+export const ApplicationCard = memo(ApplicationCardComponent);

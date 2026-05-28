@@ -1,12 +1,16 @@
-"use client"
+"use client";
 import dynamic from "next/dynamic";
 import { PageHeader } from "@/components/shared/page-header";
 import { SkillsGrid } from "@/features/skills/components/skills-grid";
 import { SkillsSummary } from "@/features/skills/components/skills-summary";
 
 const SkillsChart = dynamic(
-  () => import("@/features/skills/components/skills-chart").then((mod) => mod.SkillsChart), {ssr: false}
-)
+  () =>
+    import("@/features/skills/components/skills-chart").then(
+      (mod) => mod.SkillsChart
+    ),
+  { ssr: false }
+);
 
 export default function SkillsPage() {
   return (

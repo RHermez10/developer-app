@@ -1,5 +1,5 @@
 import { ExternalLink, Pencil, Trash2 } from "lucide-react";
-import {motion} from "framer-motion"
+import { motion } from "framer-motion";
 import { memo } from "react";
 
 type ProjectsCardProps = {
@@ -7,17 +7,22 @@ type ProjectsCardProps = {
   description: string;
   status: "Active" | "Completed" | "Archived";
   techStack: string[];
-  onDelete?: () => void
+  onDelete?: () => void;
 };
 
 function ProjectCardComponent({
   title,
   description,
   status,
-  techStack, onDelete
+  techStack,
+  onDelete,
 }: ProjectsCardProps) {
   return (
-    <motion.div whileHover={{y: -4, scale: 1.01}} transition={{duration: 0.2}} className="rounded-2xl border border-gray-800 bg-gray-900 p-6 transition-all hover:border-gray-700 hover:shadow-lg">
+    <motion.div
+      whileHover={{ y: -4, scale: 1.01 }}
+      transition={{ duration: 0.2 }}
+      className="rounded-2xl border border-gray-800 bg-gray-900 p-6 transition-all hover:border-gray-700 hover:shadow-lg"
+    >
       {/* Top Section*/}
       <div className="flex items-start justify-between">
         <div>
@@ -61,8 +66,12 @@ function ProjectCardComponent({
           <Pencil size={16} />
           Edit
         </button>
-        <button onClick={onDelete} aria-label="Delete project" className="flex items-center gap-2 text-sm text-red-400 hover:text-red-300">
-          <Trash2 size={16}/>
+        <button
+          onClick={onDelete}
+          aria-label="Delete project"
+          className="flex items-center gap-2 text-sm text-red-400 hover:text-red-300"
+        >
+          <Trash2 size={16} />
           Delete
         </button>
       </div>
@@ -70,4 +79,4 @@ function ProjectCardComponent({
   );
 }
 
-export const ProjectCard = memo(ProjectCardComponent)
+export const ProjectCard = memo(ProjectCardComponent);

@@ -15,13 +15,11 @@ export function Sidebar() {
 
   return (
     <aside className="hidden md:flex h-screen w-64 flex-col border-r border-gray-800 bg-gray-900">
-     <div className="p-4 border-b border-gray-800">
+      <div className="p-4 border-b border-gray-800">
+        <h1 className="text-xl font-bold">DevBoard</h1>
 
-  <h1 className="text-xl font-bold">DevBoard</h1>
-
-  <p className="text-xs text-gray-400">Developer Dashboard</p>
-
-</div>
+        <p className="text-xs text-gray-400">Developer Dashboard</p>
+      </div>
 
       <nav className="flex-1 p-4 space-y-2">
         {navItems.map((item) => {

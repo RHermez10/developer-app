@@ -5,10 +5,14 @@ import { useApplicationsStore } from "@/store/applications-store";
 type ApplicationsGridProps = {
   search: string;
   status: string;
-  onEditApplication: ( application: any) => void
+  onEditApplication: (application: any) => void;
 };
 
-export function ApplicationsGrid({ search, status, onEditApplication }: ApplicationsGridProps) {
+export function ApplicationsGrid({
+  search,
+  status,
+  onEditApplication,
+}: ApplicationsGridProps) {
   const applications = useApplicationsStore((state) => state.applications);
   const deleteApplication = useApplicationsStore(
     (state) => state.deleteApplication

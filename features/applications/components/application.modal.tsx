@@ -17,14 +17,15 @@ type ApplicationModalProps = {
     id?: string;
     company: string;
     role: string;
-    location: string; 
-    status: | "Applied" | "Interview" | "Offer" | "Rejected";
-  }
+    location: string;
+    status: "Applied" | "Interview" | "Offer" | "Rejected";
+  };
 };
 
 export function ApplicationModal({
   isOpen,
-  onClose, initialData
+  onClose,
+  initialData,
 }: ApplicationModalProps) {
   const {
     register,
@@ -37,29 +38,31 @@ export function ApplicationModal({
       company: initialData?.company,
       role: initialData?.role || "",
       location: initialData?.location || "",
-      status:  initialData?.status || "Applied",
+      status: initialData?.status || "Applied",
     },
   });
 
   const addApplication = useApplicationsStore((state) => state.addApplication);
-  const updateApplication = useApplicationsStore((state) => state.updateApplication)
+  const updateApplication = useApplicationsStore(
+    (state) => state.updateApplication
+  );
 
   function onSubmit(data: ApplicationFormData) {
-  if (initialData?.id) {
-    updateApplication(initialData.id, {
-      company: data.company,
-      role: data.role,
-      location: data.location,
-      status: data.status,
-    });
-  }  else {
+    if (initialData?.id) {
+      updateApplication(initialData.id, {
+        company: data.company,
+        role: data.role,
+        location: data.location,
+        status: data.status,
+      });
+    } else {
       addApplication({
         id: crypto.randomUUID(),
         company: data.company,
         role: data.role,
         location: data.location,
         status: data.status,
-        appliedDate: "Just now"
+        appliedDate: "Just now",
       });
     }
 
@@ -68,7 +71,11 @@ export function ApplicationModal({
   }
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} title={initialData ? "Edit Application" : "Add Application"}>
+    <Modal
+      isOpen={isOpen}
+      onClose={onClose}
+      title={initialData ? "Edit Application" : "Add Application"}
+    >
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
         {/*Company */}
         <div>

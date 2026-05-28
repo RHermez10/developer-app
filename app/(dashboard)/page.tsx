@@ -92,15 +92,15 @@ export default function DashboardPage() {
           <DashboardWidget title="Quick Actions">
             <div className="space-y-3">
               <Link href="/projects?create=true">
-              <button className="w-full mb-1 rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-500">
-                {" "}
-                Add Project
-              </button>
+                <button className="w-full mb-1 rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-500">
+                  {" "}
+                  Add Project
+                </button>
               </Link>
               <Link href="/applications?create=true">
-              <button className="w-full rounded-lg bg-gray-800 px-4 py-2 text-sm font-medium text-white hover:bg-gray-700">
-                Add Application
-              </button>
+                <button className="w-full rounded-lg bg-gray-800 px-4 py-2 text-sm font-medium text-white hover:bg-gray-700">
+                  Add Application
+                </button>
               </Link>
             </div>
           </DashboardWidget>
