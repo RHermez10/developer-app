@@ -1,17 +1,9 @@
 "use client";
 
 import { Input } from "../ui/input";
-
-
-
 export function Topbar() {
   return (
     <header className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between border-b border-gray-800 pb-4 mb-6">
-      {/* Search */}
-      <div className="w-full md:max-w-md">
-        <Input placeholder="Search projects, skills..." />
-      </div>
-
       {/* Right side actions */}
       <div className="flex items-center gap-3">
         {/* Theme toggle placeholder */}

@@ -1,14 +1,24 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { AddProjectModal } from "@/features/projects/components/add-project-modal";
 import { PageHeader } from "@/components/shared/page-header";
 import { ProjectsGrid } from "@/features/projects/components/projects-grid";
 import { ProjectsToolbar } from "@/features/projects/components/projects-toolbar";
 
 export default function Projects() {
+  const searchParams = useSearchParams()
   const [open, setOpen] = useState(false);
   const [search, setSearch] = useState("");
   const [status, setStatus] = useState("ALL");
+
+  useEffect(() => {
+    const shouldOpen = searchParams.get("create") === "true";
+
+    if (shouldOpen) {
+      setOpen(true)
+    }
+  }, [searchParams])
 
   return (
     <div className="space-y-6">

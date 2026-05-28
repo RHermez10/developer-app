@@ -1,15 +1,25 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { PageHeader } from "@/components/shared/page-header";
 import { ApplicationsGrid } from "@/features/applications/components/applications-grid";
 import { ApplicationsToolbar } from "@/features/applications/components/applications-toolbar";
 import { ApplicationModal } from "@/features/applications/components/application.modal";
 
 export default function Applications() {
+  const searchParams = useSearchParams()
   const [search, setSearch] = useState("");
   const [status, setStatus] = useState("ALL");
   const [open, setOpen] = useState(false);
   const [selectedApplication, setSelectedApplication] = useState<any>(null)
+
+  useEffect(()=>{
+    const shouldOpen = searchParams.get("create") === "true"
+
+    if (shouldOpen) {
+      setOpen(true)
+    }
+  }, [searchParams])
 
   return (
     <div className="space-y-6">
