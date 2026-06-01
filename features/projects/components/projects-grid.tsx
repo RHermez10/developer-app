@@ -4,9 +4,14 @@ import { useProjectsStore } from "@/store/projects-store";
 type ProjectsGridProps = {
   search: string;
   status: string;
+  onEditProject: (project: any) => void;
 };
 
-export function ProjectsGrid({ search, status }: ProjectsGridProps) {
+export function ProjectsGrid({
+  search,
+  status,
+  onEditProject,
+}: ProjectsGridProps) {
   const projects = useProjectsStore((state) => state.projects);
   const deleteProject = useProjectsStore((state) => state.deleteProject);
 
@@ -30,6 +35,7 @@ export function ProjectsGrid({ search, status }: ProjectsGridProps) {
             status={project.status}
             techStack={project.techStack}
             onDelete={() => deleteProject(project.id)}
+            onEdit={() => onEditProject(project)}
           />
         ))
       ) : (

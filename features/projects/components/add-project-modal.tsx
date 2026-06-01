@@ -10,10 +10,20 @@ import { Button } from "@/components/ui/button";
 type AddProjectModalProps = {
   isOpen: boolean;
   onClose: () => void;
+
+  initialData?: {
+    id?: string;
+    title: string;
+    description: string;
+    status: "Active" | "Completed" | "Archived";
+  };
 };
 
-export function AddProjectModal({ isOpen, onClose }: AddProjectModalProps) {
-  const addProject = useProjectsStore((state) => state.addProject);
+export function AddProjectModal({
+  isOpen,
+  onClose,
+  initialData,
+}: AddProjectModalProps) {
   const {
     register,
     handleSubmit,
@@ -28,15 +38,25 @@ export function AddProjectModal({ isOpen, onClose }: AddProjectModalProps) {
       status: "Active",
     },
   });
+  const addProject = useProjectsStore((state) => state.addProject);
+  const updateProject = useProjectsStore((state) => state.updateProject);
 
   function onSubmit(data: ProjectFormData) {
-    addProject({
-      id: crypto.randomUUID(),
-      title: data.title,
-      description: data.description,
-      status: data.status,
-      techStack: ["Next.js", "TypeScript"],
-    });
+    if (initialData?.id) {
+      updateProject(initialData.id, {
+        title: data.title,
+        description: data.description,
+        status: data.status,
+      });
+    } else {
+      addProject({
+        id: crypto.randomUUID(),
+        title: data.title,
+        description: data.description,
+        status: data.status,
+        techStack: ["Next.js", "TypeScript"],
+      });
+    }
 
     reset();
     onClose();
@@ -92,7 +112,7 @@ export function AddProjectModal({ isOpen, onClose }: AddProjectModalProps) {
         {/* Sybmit*/}
 
         <Button type="submit" className="w-full">
-          Create Project
+          {initialData ? "Save Changes" : "Add Project"}
         </Button>
       </form>
     </Modal>

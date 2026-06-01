@@ -8,6 +8,7 @@ type ProjectsCardProps = {
   status: "Active" | "Completed" | "Archived";
   techStack: string[];
   onDelete?: () => void;
+  onEdit?: () => void;
 };
 
 function ProjectCardComponent({
@@ -16,6 +17,7 @@ function ProjectCardComponent({
   status,
   techStack,
   onDelete,
+  onEdit,
 }: ProjectsCardProps) {
   return (
     <motion.div
@@ -62,7 +64,10 @@ function ProjectCardComponent({
           <ExternalLink size={16} />
           View Project
         </button>
-        <button className="flex items-center gap-2 text-sm text-gray-400 hover:text-white">
+        <button
+          onClick={onEdit}
+          className="flex items-center gap-2 text-sm text-gray-400 hover:text-white"
+        >
           <Pencil size={16} />
           Edit
         </button>

@@ -4,9 +4,7 @@ import { Input } from "@/components/ui/input";
 type ProjectsToolbarProps = {
   search: string;
   status: string;
-
   onSearchChange: (value: string) => void;
-
   onStatusChange: (value: string) => void;
   onAddProject: () => void;
 };

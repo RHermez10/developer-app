@@ -12,6 +12,7 @@ export default function Projects() {
   const [open, setOpen] = useState(false);
   const [search, setSearch] = useState("");
   const [status, setStatus] = useState("ALL");
+  const [selectedProject, setSelectedProject] = useState<any>(null);
 
   useEffect(() => {
     const shouldOpen = searchParams.get("create") === "true";
@@ -36,8 +37,18 @@ export default function Projects() {
         onStatusChange={setStatus}
         onAddProject={() => setOpen(true)}
       ></ProjectsToolbar>
-      <AddProjectModal isOpen={open} onClose={() => setOpen(false)} />
-      <ProjectsGrid search={search} status={status}></ProjectsGrid>
+      <AddProjectModal
+        isOpen={open || !!selectedProject}
+        onClose={() => {
+          setOpen(false), setSelectedProject(null);
+        }}
+        initialData={selectedProject || undefined}
+      />
+      <ProjectsGrid
+        search={search}
+        status={status}
+        onEditProject={setSelectedProject}
+      ></ProjectsGrid>
     </div>
   );
 }
