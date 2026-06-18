@@ -76,11 +76,11 @@ https://developer-app-alpha.vercel.app
 
 ## Getting Started
 
-bash npm install npm run dev 
+npm install npm run dev 
 
 ## Build
 
-bash npm run build 
+npm run build 
 
 ## Author
 
