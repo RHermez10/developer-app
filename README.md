@@ -1,36 +1,87 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Developer Dashboard
+
+A modern developer productivity dashboard built with Next.js 15, TypeScript, Tailwind CSS, Zustand, and Recharts.
+
+## Overview
+
+Developer Dashboard helps developers organize and track:
+
+- Projects
+- Job Applications
+- Skill Progress
+- Learning Activity
+
+The application focuses on clean architecture, reusable UI components, accessibility, responsive design, and performance optimization.
+
+## Features
+
+### Dashboard
+- Project statistics
+- Application tracking
+- Learning streak overview
+- Recent activity feed
+- Quick actions
+- Search functionality
+
+### Projects
+- Create projects
+- Edit projects
+- Delete projects
+- Status filtering
+- Search projects
+- Persistent local storage
+
+### Applications
+- Track job applications
+- Update application status
+- Filter applications
+- Persistent local storage
+
+### Skills
+- Skill progress tracking
+- Data visualization using Recharts
+- Responsive charts
+
+### UX & Accessibility
+- Dark theme
+- Responsive mobile navigation
+- Keyboard navigation
+- Accessible modals
+- Focus states
+- ARIA support
+
+## Tech Stack
+
+- Next.js 15
+- TypeScript
+- Tailwind CSS
+- Zustand
+- React Hook Form
+- Zod
+- Framer Motion
+- Recharts
+- Lucide React
+
+## Performance Optimizations
+
+- Zustand persistence
+- Memoized components
+- Dynamic imports
+- Responsive chart optimization
+- Production build optimization
+
+## Live Demo
+
+https://developer-app-alpha.vercel.app
 
 ## Getting Started
 
-First, run the development server:
+bash npm install npm run dev 
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Build
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+bash npm run build 
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Author
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Ramta Hermez
